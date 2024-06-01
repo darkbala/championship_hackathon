@@ -1,0 +1,36 @@
+.Login{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: whitesmoke;
+
+    
+        &__inner{
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+            
+            h2{
+                font-size: 32px;
+                font-weight: bold;
+            }
+    
+            input{
+                padding: 10px 5px;
+                width: 300px;
+                border-radius: 5px;
+            }
+
+            button{
+                text-align: center;
+                background-color: lightgreen;
+                color: white;
+                padding: 10px 30px;
+                border-radius: 10px;
+                font-weight: bold;
+            }
+        }
+}
