@@ -1,0 +1,158 @@
+$blackColor: #161C2D;
+
+.Tools {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  > section {
+    display: flex;
+    gap: 100px;
+    justify-content: space-between;
+
+    .text__cont {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+
+      > h3 {
+        color: $blackColor;
+        font-family: Open Sans;
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 58px;
+        letter-spacing: -1.8px;
+        text-align: left;
+      }
+
+      h5 {
+        font-family: Open Sans;
+        font-size: 21px;
+        font-weight: 700;
+        line-height: 32px;
+        letter-spacing: -0.5px;
+        text-align: left;
+      }
+
+      p {
+        font-family: Open Sans;
+        font-size: 17px;
+        font-weight: 400;
+        line-height: 29px;
+        letter-spacing: -0.2px;
+        text-align: left;
+      }
+
+      span {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+
+        h6 {
+          color: $blackColor;
+          font-family: Open Sans;
+          font-size: 21px;
+          font-weight: 700;
+          line-height: 32px;
+          letter-spacing: -0.5px;
+          text-align: left;
+        }
+
+        p {
+          font-family: Open Sans;
+          font-size: 17px;
+          font-weight: 400;
+          line-height: 29px;
+          letter-spacing: -0.2px;
+          text-align: left;
+        }
+      }
+    }
+  }
+}
+
+/* Адаптация под планшеты */
+@media (max-width: 820px) {
+  .Tools {
+
+  text-align: center;
+    > section {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      text-align: center;
+      text-align: center;
+      .text__cont {
+        padding-top: 30px;
+        gap: 10px;
+        > h3 {
+          font-size: 34px;
+          line-height: 44px;
+        }
+        h5 {
+          font-size: 18px;
+          line-height: 26px;
+          letter-spacing: -0.4px;
+          text-align: center;
+        }
+
+        p, span p {
+          font-size: 15px;
+          line-height: 24px;
+          text-align: center;
+        }
+
+        span {
+          gap: 10px;
+        }
+
+        span h6 {
+          font-size: 18px;
+          line-height: 26px;
+          letter-spacing: -0.4px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+/* Адаптация под телефоны */
+@media (max-width: 480px) {
+  .Tools > section {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+    padding: 10px;
+
+    .text__cont {
+      > h3 {
+        font-size: 28px;
+        line-height: 36px;
+        letter-spacing: -1.2px;
+      }
+
+      h5 {
+        font-size: 16px;
+        line-height: 22px;
+        letter-spacing: -0.3px;
+      }
+
+      p, span p {
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: -0.1px;
+      }
+
+      span h6 {
+        font-size: 16px;
+        line-height: 22px;
+        letter-spacing: -0.3px;
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+.AppCard{
+    max-width: 400px;
+    display: flex;
+    background-color: #EAEAEA;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 10px;
+    >div:first-of-type{
+        display: flex;
+        align-items: center;
+    }
+    >div:last-child{
+        color:green;
+    }
+}

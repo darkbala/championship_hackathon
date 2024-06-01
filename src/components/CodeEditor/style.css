@@ -1,0 +1,109 @@
+.editor-container {
+    height: 570px;
+    width: 700px;
+    position: relative;
+    border: 1px solid #333;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    background-color: black;
+    position: relative;
+}
+
+.editor-container.fullscreen {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    border: none;
+    border-radius: 0;
+}
+
+.toolbar {
+    display: flex;
+    justify-content: flex-start;
+    background-color: transparent;
+    padding: 10px;
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    z-index: 100;
+}
+
+.toolbar-button {
+    margin-right: 10px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+
+.toolbar-button:hover {
+    background-color: #777;
+}
+
+.copy-message {
+    position: absolute;
+    top: -30px;
+    right: -10px;
+    z-index: 100;
+    background-color: transparent;
+    color: #14d514;
+    padding: 10px;
+}
+
+@media (max-width: 768px) {
+    .editor-container {
+        width: 480px;
+        height: 500px;
+    }
+
+    .toolbar {
+        justify-content: center;
+        right: 0;
+        padding: 5px;
+    }
+
+    .toolbar-button {
+        margin-right: 5px;
+        font-size: 12px;
+    }
+
+    .copy-message {
+        top: -25px;
+        right: -5px;
+        padding: 5px;
+    }
+}
+
+/* Адаптация под телефоны */
+@media (max-width: 480px) {
+    .editor-container {
+        width: 350px;
+        height: 400px;
+        border-radius: 0;
+    }
+
+    .toolbar {
+        justify-content: space-between;
+        width: 100%;
+        padding: 5px;
+
+    }
+
+    .toolbar-button {
+        margin-right: 2px;
+        font-size: 10px;
+    }
+
+    .copy-message {
+        top: -20px;
+        right: 0;
+        padding: 3px;
+        font-size: 10px;
+    }
+}
