@@ -15,7 +15,7 @@ const Login = () => {
   const handleLogin = () => {
     dispatch(login({ password, email })).then((response) => {
       if (response.meta.requestStatus === "fulfilled") {
-        navigate("/register");
+        navigate("/transaction");
       } else {
         console.log("Ошибка входа:", response.error.message);
       }
