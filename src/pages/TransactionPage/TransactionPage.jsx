@@ -1,16 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Table, Select, Spin } from "antd";
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-} from "recharts";
-import AppCard from "../../components/AppCard/AppCard";
+
 import classes from "./TransactionPage.module.scss";
 
 const { Option } = Select;
@@ -19,7 +9,7 @@ export default function TransactionPage() {
   const [data, setData] = useState([]);
   const [totalSum, setTotalSum] = useState(0);
   const [totalCount, setTotalCount] = useState(0);
-  const [sort, setSort] = useState("week"); // Default sort by week
+  const [sort, setSort] = useState("week");
   const [loading, setLoading] = useState(false);
   const [chartData, setChartData] = useState(null);
 
@@ -51,33 +41,6 @@ export default function TransactionPage() {
       title: "Price",
       dataIndex: "price",
       key: "price",
-    },
-  ];
-
-  const apps = [
-    {
-      title: "Магазин Парфюмерии",
-      income: 10000,
-    },
-    {
-      title: "Магазин Электроники",
-      income: 15000,
-    },
-    {
-      title: "Магазин Одежды",
-      income: 20000,
-    },
-    {
-      title: "Магазин Бытовой Техники",
-      income: 18000,
-    },
-    {
-      title: "Магазин Спорттоваров",
-      income: 12000,
-    },
-    {
-      title: "Магазин Игрушек",
-      income: 9000,
     },
   ];
 
