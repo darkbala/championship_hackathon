@@ -1,88 +1,68 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import styles from './About.module.scss';
-import './About.css'
-// import chipImage from 'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/chip.png';
-// import amexImage from '../../assets/static/images/amex.png';
-// import cardBg from '../../assets/static/images/your-card-background.jpeg'; // замените на актуальный путь
+import React from "react";
+import { motion, useInView } from "framer-motion";
+import cl from "./About.module.scss";
+import card from "../../assets/static/images/card.png";
+import payment from "../../assets/static/images/payment.png";
 
 const About = () => {
-  const [isCardFlipped, setIsCardFlipped] = useState(false);
-  const [cardNumber, setCardNumber] = useState('');
-  const [cardName, setCardName] = useState('');
-  const [cardMonth, setCardMonth] = useState('');
-  const [cardYear, setCardYear] = useState('');
-  const [cardCvv, setCardCvv] = useState('');
+  const refContent = React.useRef(null);
+  const refImage1 = React.useRef(null);
+  const refImage2 = React.useRef(null);
 
-  const handleCardNumberChange = (e) => setCardNumber(e.target.value);
-  const handleCardNameChange = (e) => setCardName(e.target.value);
-  const handleCardMonthChange = (e) => setCardMonth(e.target.value);
-  const handleCardYearChange = (e) => setCardYear(e.target.value);
-  const handleCardCvvChange = (e) => setCardCvv(e.target.value);
-
-  const flipCard = (value) => setIsCardFlipped(value);
+  const isContentInView = useInView(refContent, { once: true });
+  const isImage1InView = useInView(refImage1, { once: true });
+  const isImage2InView = useInView(refImage2, { once: true });
 
   return (
-    <div className="card-container">
-      <div className="card-wrapper"></div>
-
-      <div className="form-container">
-        <form action="#">
-          <label htmlFor="number">Card Number</label>
-          <input
-            placeholder="XXXX  XXXX  XXXX  XXXX"
-            type="text"
-            name="number"
-            id="number"
-            value={cardNumber}
-            onChange={handleCardNumberChange}
+    <section className={cl.About}>
+      <div className="container">
+        <div className={cl.About__inner}>
+          <motion.div
+            ref={refContent}
+            className={cl.About__content}
+            initial={{ opacity: 0, y: 50 }}
+            animate={
+              isContentInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }
+            }
+            transition={{ duration: 0.5 }}
+          >
+            <h2 className={cl.About__title}>
+              Полностью интегрированный набор платежных продуктов
+            </h2>
+            <p className={cl.About__text}>
+              Мы объединяем все, что требуется для создания веб-сайтов и
+              приложений, которые принимают платежи и отправляют выплаты по
+              всему миру. Продукты Stripe позволяют осуществлять платежи онлайн
+              и лично розничным продавцам, компаниям, занимающимся подпиской,
+              программным платформам и маркетплейсам, а также всему, что
+              находится между ними.
+            </p>
+          </motion.div>
+          <motion.img
+            ref={refImage1}
+            src={payment}
+            alt="mobile"
+            className={cl.About__image}
+            initial={{ opacity: 0, x: -50 }}
+            animate={
+              isImage1InView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }
+            }
+            transition={{ duration: 0.5, delay: 0.3 }}
           />
-          <label htmlFor="name">Name on Card</label>
-          <input
-            placeholder="Full Name"
-            type="text"
-            name="name"
-            id="name"
-            value={cardName}
-            onChange={handleCardNameChange}
-          /><br />
-
-          <div className="cardForm-Field50">
-            <label htmlFor="expiry">Expiry Date</label><br />
-            <input
-              placeholder="MM/YY"
-              type="text"
-              name="expiry"
-              id="expiry"
-              value={`${cardMonth}/${cardYear}`}
-              onChange={(e) => {
-                const [month, year] = e.target.value.split('/');
-                setCardMonth(month);
-                setCardYear(year);
-              }}
-              className="secondRow"
-            />
-          </div>
-          <div className="cardForm-Field50">
-            <label htmlFor="cvc">Security Code</label><br />
-            <input
-              placeholder="XXX"
-              type="text"
-              name="cvc"
-              id="cvc"
-              value={cardCvv}
-              onChange={handleCardCvvChange}
-              className="secondRow incorrectInfo"
-            />
-          </div>
-
-          <label htmlFor="postal-code">Postal Code / ZIP</label>
-          <input placeholder="XXX XXX" type="text" name="postal-code" id="postal-code" /><br />
-
-          <input type="submit" value="[LOCK] Submit & Pay $500.00" className="button CardGood" />
-        </form>
+          <motion.img
+            ref={refImage2}
+            src={card}
+            alt="card"
+            className={cl.About__card}
+            initial={{ opacity: 0, x: -100 }}
+            animate={
+              isImage2InView ? { opacity: 1, x: -340 } : { opacity: 0, x: -100 }
+            }
+            transition={{ duration: 0.8, delay: 0.6 }}
+          />
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

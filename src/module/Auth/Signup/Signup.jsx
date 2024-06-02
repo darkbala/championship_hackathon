@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { signup } from "../../../store/slices/authSlice.js";
 import { useNavigate } from "react-router-dom";
+import cl from "./Signup.module.scss";
 
 const Signup = () => {
   const dispatch = useDispatch();
@@ -31,22 +32,24 @@ const Signup = () => {
   }
 
   return (
-    <div style={{ marginTop: "48px" }}>
-      <div>
+    <div className={cl.Signup}>
+      <div className={cl.Signup__inner}>
         <h2>Signup</h2>
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+
         <input
           type="email"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        
+
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+
         <input
           type="text"
           placeholder="Title"
