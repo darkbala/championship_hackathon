@@ -20,6 +20,7 @@
     "axios": "^1.7.2",
     "classnames": "^2.5.1",
     "framer-motion": "^11.2.10",
+    "jQuery": "^1.7.4",
     "monaco-editor": "^0.49.0",
     "react": "^18.2.0",
     "react-burger-menu": "^3.0.9",
